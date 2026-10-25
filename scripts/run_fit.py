@@ -29,6 +29,8 @@ if __name__ == '__main__':
     ap.add_argument('--cache_dir', default=None); ap.add_argument('--device', default='cuda')
     ap.add_argument('--batch_size', type=int, default=128); ap.add_argument('--workers', type=int, default=8)
     ap.add_argument('--limit', type=int, default=None, help='smoke only')
+    ap.add_argument('--features', default='out', choices=['out', 'k'],
+                    help="token features to fit on: 'out' (block output, default) or 'k' (attn keys, as main_salient --features k; SOAP App. E.1 uses keys for MAE)")
     a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
     files = [l.strip() for l in open(a.list) if l.strip()][:a.limit]
     dev = torch.device(a.device); torch.manual_seed(0)
@@ -41,9 +43,10 @@ if __name__ == '__main__':
     dl_synth = SynthesizedDataSet(size=imgsize, channels=3, batch_size=a.batch_size, length=len(data))
     model = get_backbone(a.backbone)
     if a.backbone.startswith('capi'):  # capi_forward(self, x, vit_feat) has no layer arg
+        assert a.features == 'out', 'capi key-feature fit not implemented'
         def forward_fn(self, img): return self.forward(img, 'out')
     else:
-        def forward_fn(self, img): return self.forward(img, 'out', -1)
+        def forward_fn(self, img): return self.forward(img, a.features, -1)
     model.forward_fn = MethodType(forward_fn, model)
     model.to(dev).eval()
     cov = fit_WCE(model, dl, a.backbone, dev, forward_fn='forward_fn', num_global_tokens=0, dump_dir=a.out)
