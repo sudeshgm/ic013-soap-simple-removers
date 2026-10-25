@@ -1,0 +1,245 @@
+{
+ "dinov2_R0": {
+  "Tokencut": {
+   "IoU": 52.756,
+   "accuracy": 80.082,
+   "F_max": 58.647
+  },
+  "Tokencut_BS": {
+   "IoU": 65.033,
+   "accuracy": 83.611,
+   "F_max": 71.956
+  },
+  "Tokencut_BS_binary": {
+   "IoU": 59.227,
+   "accuracy": 84.905,
+   "F_max": 63.616
+  },
+  "args": {
+   "backbone": "dinov2_base",
+   "features": "out",
+   "semantic_invariance_projector": false,
+   "pca_guide_dim": null,
+   "flip_guide": false,
+   "mu": 2.0,
+   "tau": 0.05,
+   "gamma": 1.0
+  }
+ },
+ "dinov2_R1_mu2": {
+  "Tokencut": {
+   "IoU": 52.553,
+   "accuracy": 80.319,
+   "F_max": 58.483
+  },
+  "Tokencut_BS": {
+   "IoU": 65.095,
+   "accuracy": 83.873,
+   "F_max": 72.061
+  },
+  "Tokencut_BS_binary": {
+   "IoU": 59.067,
+   "accuracy": 84.947,
+   "F_max": 63.354
+  },
+  "args": {
+   "backbone": "dinov2_base",
+   "features": "out",
+   "semantic_invariance_projector": true,
+   "pca_guide_dim": null,
+   "flip_guide": false,
+   "mu": 2.0,
+   "tau": 0.05,
+   "gamma": 1.0
+  }
+ },
+ "dinov2_R1_mu2_guide": {
+  "Tokencut": {
+   "IoU": 60.209,
+   "accuracy": 84.565,
+   "F_max": 66.542
+  },
+  "Tokencut_BS": {
+   "IoU": 73.065,
+   "accuracy": 88.673,
+   "F_max": 80.799
+  },
+  "Tokencut_BS_binary": {
+   "IoU": 60.864,
+   "accuracy": 89.124,
+   "F_max": 65.014
+  },
+  "args": {
+   "backbone": "dinov2_base",
+   "features": "out",
+   "semantic_invariance_projector": true,
+   "pca_guide_dim": -2,
+   "flip_guide": true,
+   "mu": 2.0,
+   "tau": 0.05,
+   "gamma": 1.0
+  }
+ },
+ "dinov2_R1_muSI075": {
+  "Tokencut": {
+   "IoU": 52.553,
+   "accuracy": 80.319,
+   "F_max": 58.483
+  },
+  "Tokencut_BS": {
+   "IoU": 65.095,
+   "accuracy": 83.873,
+   "F_max": 72.061
+  },
+  "Tokencut_BS_binary": {
+   "IoU": 59.067,
+   "accuracy": 84.947,
+   "F_max": 63.354
+  },
+  "args": {
+   "backbone": "dinov2_base",
+   "features": "out",
+   "semantic_invariance_projector": true,
+   "pca_guide_dim": null,
+   "flip_guide": false,
+   "mu": null,
+   "tau": 0.05,
+   "gamma": 1.0
+  }
+ },
+ "mae_R0_k": {
+  "Tokencut": {
+   "IoU": 63.385,
+   "accuracy": 87.313,
+   "F_max": 70.881
+  },
+  "Tokencut_BS": {
+   "IoU": 71.887,
+   "accuracy": 89.841,
+   "F_max": 80.624
+  },
+  "Tokencut_BS_binary": {
+   "IoU": 67.033,
+   "accuracy": 89.381,
+   "F_max": 73.803
+  },
+  "args": {
+   "backbone": "mae_base",
+   "features": "k",
+   "semantic_invariance_projector": false,
+   "pca_guide_dim": null,
+   "flip_guide": false,
+   "mu": 2.0,
+   "tau": 0.05,
+   "gamma": 1.0
+  }
+ },
+ "mae_R0_out": {
+  "Tokencut": {
+   "IoU": 28.35,
+   "accuracy": 68.959,
+   "F_max": 36.738
+  },
+  "Tokencut_BS": {
+   "IoU": 30.314,
+   "accuracy": 69.648,
+   "F_max": 38.447
+  },
+  "Tokencut_BS_binary": {
+   "IoU": 27.842,
+   "accuracy": 71.552,
+   "F_max": 34.764
+  },
+  "args": {
+   "backbone": "mae_base",
+   "features": "out",
+   "semantic_invariance_projector": false,
+   "pca_guide_dim": null,
+   "flip_guide": false,
+   "mu": 2.0,
+   "tau": 0.05,
+   "gamma": 1.0
+  }
+ },
+ "mae_R1_mu2_k": {
+  "Tokencut": {
+   "IoU": 63.371,
+   "accuracy": 87.305,
+   "F_max": 70.865
+  },
+  "Tokencut_BS": {
+   "IoU": 71.874,
+   "accuracy": 89.831,
+   "F_max": 80.615
+  },
+  "Tokencut_BS_binary": {
+   "IoU": 67.115,
+   "accuracy": 89.407,
+   "F_max": 73.911
+  },
+  "args": {
+   "backbone": "mae_base",
+   "features": "k",
+   "semantic_invariance_projector": true,
+   "pca_guide_dim": null,
+   "flip_guide": false,
+   "mu": 2.0,
+   "tau": 0.05,
+   "gamma": 1.0
+  }
+ },
+ "mae_R1_mu2_out": {
+  "Tokencut": {
+   "IoU": 28.144,
+   "accuracy": 69.133,
+   "F_max": 36.497
+  },
+  "Tokencut_BS": {
+   "IoU": 30.204,
+   "accuracy": 69.919,
+   "F_max": 38.182
+  },
+  "Tokencut_BS_binary": {
+   "IoU": 27.924,
+   "accuracy": 71.929,
+   "F_max": 34.828
+  },
+  "args": {
+   "backbone": "mae_base",
+   "features": "out",
+   "semantic_invariance_projector": true,
+   "pca_guide_dim": null,
+   "flip_guide": false,
+   "mu": 2.0,
+   "tau": 0.05,
+   "gamma": 1.0
+  }
+ },
+ "mae_R1_muSI075_k": {
+  "Tokencut": {
+   "IoU": 63.374,
+   "accuracy": 87.301,
+   "F_max": 70.856
+  },
+  "Tokencut_BS": {
+   "IoU": 71.896,
+   "accuracy": 89.836,
+   "F_max": 80.601
+  },
+  "Tokencut_BS_binary": {
+   "IoU": 67.143,
+   "accuracy": 89.366,
+   "F_max": 73.912
+  },
+  "args": {
+   "backbone": "mae_base",
+   "features": "k",
+   "semantic_invariance_projector": true,
+   "pca_guide_dim": null,
+   "flip_guide": false,
+   "mu": null,
+   "tau": 0.05,
+   "gamma": 1.0
+  }
+ }
+}
