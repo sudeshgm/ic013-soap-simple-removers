@@ -3,7 +3,7 @@
 # Usage: IMAGENET_TRAIN=/path/to/imagenet/train bash scripts/run_gpu.sh
 set -euo pipefail
 if [ -z "${IMAGENET_TRAIN:-}" ] || [ ! -d "$IMAGENET_TRAIN" ]; then
-  C=$(find /kaggle/input -maxdepth 6 -type d -path '*CLS-LOC/train' 2>/dev/null | head -1)
+  C=$(find /kaggle/input -maxdepth 6 -type d -path '*/Data/CLS-LOC/train' 2>/dev/null | head -1)
   [ -n "$C" ] && IMAGENET_TRAIN="$C"
 fi
 [ -d "${IMAGENET_TRAIN:-}" ] || { echo "FATAL: ImageNet train dir not found (IMAGENET_TRAIN=${IMAGENET_TRAIN:-unset})"; ls -R /kaggle/input 2>/dev/null | head -40; exit 1; }
