@@ -40,7 +40,10 @@ if __name__ == '__main__':
     dl = torch.utils.data.DataLoader(data, a.batch_size, num_workers=a.workers, pin_memory=(a.device == 'cuda'))
     dl_synth = SynthesizedDataSet(size=imgsize, channels=3, batch_size=a.batch_size, length=len(data))
     model = get_backbone(a.backbone)
-    def forward_fn(self, img): return self.forward(img, 'out', -1)
+    if a.backbone.startswith('capi'):  # capi_forward(self, x, vit_feat) has no layer arg
+        def forward_fn(self, img): return self.forward(img, 'out')
+    else:
+        def forward_fn(self, img): return self.forward(img, 'out', -1)
     model.forward_fn = MethodType(forward_fn, model)
     model.to(dev).eval()
     cov = fit_WCE(model, dl, a.backbone, dev, forward_fn='forward_fn', num_global_tokens=0, dump_dir=a.out)
